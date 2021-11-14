@@ -2,10 +2,7 @@ package com.dynamicapp.dynamicblogapp.models;
 
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Component
@@ -14,6 +11,7 @@ public class UserModel {
 
     @Id
     @Column(name = "userid")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int userid;
 
     @Column(name = "username")
