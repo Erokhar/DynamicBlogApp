@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Login - Brand</title>
-    <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
-    <link rel="stylesheet" href="../static/assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="./assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
-    <link rel="stylesheet" href="../static/assets/css/smoothproducts.css">
+    <link rel="stylesheet" href="./assets/css/smoothproducts.css">
 </head>
 
 <body>
@@ -18,27 +18,29 @@
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="features.html">Features</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="blog-post-list.html">Blog</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="blog-post.html">Blog Post</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="about-us.html">About Us</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="login.html">Login</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="registration.html">Register</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/features">Features</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/blog-posts">Blog</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/newBlogPost">New Post</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/about">About Us</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/login">Login</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/register">Register</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <main class="page login-page">
         <section class="clean-block clean-form dark">
-            <div class="container">
+            <div class="container" >
                 <div class="block-heading">
                     <h2 class="text-info">Log In</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                 </div>
-                <form>
-                    <div class="form-group"><label for="email">Email</label><input class="form-control item" type="email" id="email"></div>
-                    <div class="form-group"><label for="password">Password</label><input class="form-control" type="password" id="password"></div>
+                <div th:if="${loginErr}" class="alert alert-danger alert-dismissible fade show ">
+                    <strong>Error!</strong> Username or Password Incorrect. Please verify the credentials you have provided.
+                </div>
+                <form method="post" action="/loginUser">
+                    <div class="form-group"><label for="username">Username</label><input class="form-control item" type="text" id="username" name="username" required></div>
+                    <div class="form-group"><label for="userpassword">Password</label><input class="form-control" type="password" id="userpassword" name="userpassword" required></div>
                     <div class="form-group">
                         <div class="form-check"><input class="form-check-input" type="checkbox" id="checkbox"><label class="form-check-label" for="checkbox">Remember me</label></div>
                     </div><button class="btn btn-primary btn-block" type="submit">Log In</button></form>
@@ -86,11 +88,11 @@
             <p>© 2018 Copyright Text</p>
         </div>
     </footer>
-    <script src="../static/assets/js/jquery.min.js"></script>
-    <script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="../static/assets/js/smoothproducts.min.js"></script>
-    <script src="../static/assets/js/theme.js"></script>
+    <script src="./assets/js/smoothproducts.min.js"></script>
+    <script src="./assets/js/theme.js"></script>
 </body>
 
 </html>

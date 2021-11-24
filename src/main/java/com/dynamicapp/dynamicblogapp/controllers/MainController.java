@@ -1,5 +1,7 @@
-package com.dynamicapp.dynamicblogapp.models;
+package com.dynamicapp.dynamicblogapp.controllers;
 
+import com.dynamicapp.dynamicblogapp.repositories.BlogsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @ComponentScan("com.dynamicapp.dynamicblogapp.repositories")
 public class MainController {
+
+    @Autowired
+    BlogsRepository blogsRepository;
 
     @RequestMapping("/")
     public ModelAndView getHomePage(ModelAndView modelAndView, HttpServletRequest request){
@@ -44,6 +49,20 @@ public class MainController {
     public ModelAndView about(ModelAndView modelAndView, HttpServletRequest request){
 
         modelAndView.setViewName("about-us");
+        return modelAndView;
+    }
+
+    @RequestMapping("/blog-posts")
+    public ModelAndView blogPosts(ModelAndView modelAndView,HttpServletRequest request){
+
+        modelAndView.setViewName("blog-post-list");
+        return modelAndView;
+    }
+
+    @RequestMapping("/newBlogPost")
+    public ModelAndView newBlogPost(ModelAndView modelAndView,HttpServletRequest request){
+
+        modelAndView.setViewName("blog-edit");
         return modelAndView;
     }
 

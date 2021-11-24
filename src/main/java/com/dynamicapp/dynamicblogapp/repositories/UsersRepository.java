@@ -11,7 +11,7 @@ public interface UsersRepository extends JpaRepository<UserModel,Long> {
     @Override
     List<UserModel> findAll();
 
-    List<UserModel> findByUserid(long userid);
+    List<UserModel> findByUserid(int userid);
 
     List<UserModel> findByUsername(String username);
 
